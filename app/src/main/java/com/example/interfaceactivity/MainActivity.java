@@ -9,6 +9,8 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String EXTRA_MESSAGE = "com.example.interfaceactivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
     /** Called whe the user taps the button **/
     public void sendMessage (View view) {
         Intent intent = new Intent(this, DisplayMessageActivity.class);
-        Edittext editText = (EditText) findViewById(R.id.editTextTextPersonName);
+        EditText editText = (EditText) findViewById(R.id.editText);
         String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE,message); startActivity(intent);
+        intent.putExtra(EXTRA_MESSAGE,message);
+        startActivity(intent);
     }
 }
